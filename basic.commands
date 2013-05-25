@@ -1,0 +1,21 @@
+Basic Linux Commands
+====================
+
+File and Directory Operators
+----------------------------
+
+cd							change directory
+cd ~						change to users root directory
+
+ls [search]					list a directory
+ls -l [search]				list a directory with full details
+ls -a						list a directory including hidden files
+
+mkdir [name]				create a directory
+rm [file]					delete
+mv [target] [dest]			move
+touch [file]				creates a blank file
+
+ln -n [target] [name]		creates a symbolic link 
+
+
