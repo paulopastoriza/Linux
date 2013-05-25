@@ -1,0 +1,14 @@
+Basic GIT commands
+==================
+
+git add HelloWorldApp.*
+git commit -m 'added HelloWorldApp'
+git push -u origin master
+
+
+Create a new Repo
+=================
+mkdir ~/HelloWorld
+cd ~/HelloWorld
+git init
+touch README.md
