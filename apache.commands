@@ -1,0 +1,11 @@
+Apache Server Commands
+======================
+
+Config File Locations
+---------------------
+/etc/apache2
+
+
+Common Commands
+---------------
+/etc/init.d/apache2 restart
