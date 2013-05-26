@@ -12,3 +12,8 @@ mkdir ~/HelloWorld
 cd ~/HelloWorld
 git init
 touch README.md
+
+git add README.md
+git commit -m 'initial commit'
+git remote add origin https://github.com/username/HelloWorld.git
+git push -u origin master
