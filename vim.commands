@@ -1,0 +1,9 @@
+VIM Commands
+============
+
+~/.vimrc		settings file
+/usr/share/vim/vimXX/colors		location of color schemes
+
+./vimrc settings
+----------------
+colorscheme [scheme]
