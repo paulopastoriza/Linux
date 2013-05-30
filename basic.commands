@@ -19,3 +19,6 @@ touch [file]				creates a blank file
 ln -n [target] [name]		creates a symbolic link 
 
 chown user:group -R [target]	changes the owner and group recursively
+
+export TERM="xterm-256color"
+tput colors
