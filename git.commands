@@ -21,3 +21,7 @@ git push -u origin master
 Clone a Repo
 ============
 git clone https://github.com/saulhudson/rwilliamsondesign.git
+
+Remove from a Repo
+==================
+git rm [name] (-r)
