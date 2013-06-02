@@ -17,3 +17,7 @@ git add README.md
 git commit -m 'initial commit'
 git remote add origin https://github.com/username/HelloWorld.git
 git push -u origin master
+
+Clone a Repo
+============
+git clone https://github.com/saulhudson/rwilliamsondesign.git
