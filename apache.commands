@@ -9,3 +9,59 @@ Config File Locations
 Common Commands
 ---------------
 /etc/init.d/apache2 restart
+
+
+Log File Analysis
+-----------------
+
+Number of unique http requests per hour
+grep "16/May" access.log | cut -d[ -f2 | cut -d] -f1 | awk -F: '{print $2}' | sort -n | uniq -c
+
+Number of unique http referrers per hour
+grep "16/May" access.log | awk '{print $4 ": " $1 " " $11}' | cut -d ':' -f1,2,3,5,6 | grep -v "\"-\"" | sort | uniq | cut -d: -f2 | sort -n | uniq -c
+
+How many /admin requests per hour
+grep "buymobilephones.net/admin" 20130516-access.log | awk '{print $4 " " $11}' | cut -d ':' -f2 | sort -n | uniq -c
+
+
+
+Number of unique http referrers per hour minus "/admin"
+grep "16/May" access.log | grep -v "/admin" | awk '{print $4 ": " $1 " " $11}' | cut -d ':' -f1,2,3,5,6 | grep -v "\"-\"" | sort | uniq | cut -d: -f2 | sort -n | uniq -c
+
+
+
+Average http request size
+grep "16/May" access.log | awk '{sum+=$10} END {print "Average =", sum/NR}'
+
+Average http request size minus 304's
+grep "16/May" access.log | awk '{print $9 " " $10'} | grep -v "304 -" | awk '{sum+=$2} END {print "Average =", sum/NR}'
+
+Total Bytes Served
+grep "16/May" 20130516-access.log | awk '{sum+=$10} END {print "Total bytes =", sum}'
+
+
+
+Group by http request type
+grep "16/May" 20130516-access.log | awk '{print $9}' | sort -n | uniq -c
+
+
+
+By Referrer - Admin
+grep "/admin" 20130516-access.log | awk '{print $11}' | sort | uniq -c
+grep "/admin" 20130516-access.log | awk '{print $11}' | cut -d? -f1 | sort | uniq -c | awk '{print $1 "," $2}' | sort -nr > admin.csv
+
+
+By Requested Page inc Admin
+grep "16/May"  20130516-access.log | awk '{print $7}' | cut -d? -f1 | sort | uniq -c | awk '{print $1 "," $2}' | sort -nr > results.csv
+
+
+Get all Requested PNGs order by count
+grep "16/May"  20130516-access.log | grep ".png" | awk '{print $10 " " $7}' | sort | uniq -c | awk '{print $1 "," $2 "," $3}' | sort -nr > toppngs.txt
+
+
+How Often is a File Accessed
+grep "16/May"  20130516-access.log | grep "bmp_header_logo_ng_no_spacing" | awk '{print $10 " " $7}' | cut -d? -f1 | sort | uniq -c
+
+
+Last ten seconds worth of the access.log
+tail -n0 -f access-swn.log > ~/tmp.log & sleep 10; kill $! ;
