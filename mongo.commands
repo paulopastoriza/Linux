@@ -1,0 +1,46 @@
+Mongo Commands
+==============
+
+default port 27017
+http listening port 28017
+
+basic admin info http://localhost:28017
+
+mongo	default mongo shell
+mongo some-host:30000/myDB	connects to a remote host/db
+mongo --nodb	loads the shell without connecting to a database
+
+Mongo Shell Commands
+====================
+db				returns current database
+use [dbname]	switch database
+
+conn = new Mongo("some-host:30000")		connect to a new host
+db = conn.getDB("myDB")					connect to a database on this host
+
+db.help()
+db.mycoll.help()
+
+show dbs
+show collections
+show users
+
+*typing a function without the parenthese prints the code of the function
+
+
+CRUD
+====
+object = {"title" : "My Blog Post", "content" : "This is my article", "data" : new Date()}
+
+Create / Insert db.blog.insert(object)
+Read / Find   	db.blog.find()
+Read / Find   	db.blog.findOne()
+
+object.comments = []
+Update			db.blog.update({title: "My Blog Post"}, post)
+
+Delete			db.blog.delete({title: "My Blog Post"})
+
+
+
+
