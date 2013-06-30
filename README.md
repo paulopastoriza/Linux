@@ -8,3 +8,4 @@ Place to store all my favourite and sadly easily forgotten Linux commands
 - git commands
 - vim commands
 - apache commands
+- mongo commands
