@@ -23,5 +23,6 @@ chown user:group -R [target]	changes the owner and group recursively
 export TERM="xterm-256color"
 tput colors
 
+sudo mount 192.168.1.102:/volume1/video /mnt/diskstation/
 
 find . -name .svn -prune -o -exec grep -Hin "" {} \;
